@@ -5,9 +5,12 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title> Asistencia system | Inicio</title>
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-   <!-- Tell the browser to be responsive to screen width -->
-   <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Tempusdominus Bbootstrap 4 -->
@@ -36,16 +39,13 @@
   <!-- Tempusdominus Bbootstrap 4 -->
   <!-- Theme style -->
   <link rel="stylesheet" href="../assets/dist/css/adminlte.css">
-  <link rel="stylesheet" href="../assets/dist/js/adminlte.js">
+
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="shortcut icon" href="../assets/img/logo02.jpg">
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="../assets/dist/js/adminlte.js"></script>
 
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
+<script src="../assets/plugins/sparklines/sparkline.js"></script>
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
@@ -55,14 +55,14 @@
 
 <!-- BODY -->
 
-<body class="sidebar-mini layout-fixed accent-orange control-sidebar-slide-open" style="height: auto; ">
+<body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-dark navbar-primary">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
-      <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       
@@ -82,7 +82,7 @@
     <!-- Brand Logo -->
     <a href="#" class="brand-link navbar-primary pb-4">
       <img src="../assets/img/logo02.jpg" alt="Universidad Nacional Toribio Rodriguez de Mendoza de Amazonas" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light"><b>Universidad</b></span>
+      <span class="brand-text font-weight-light"><b>Administración</b></span>
     </a>
 
     <!-- Sidebar -->
@@ -93,7 +93,7 @@
           <img src="../assets/img/logo02.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"> Secretaría</a>
+          <a href="#" class="d-block"> Secretaria</a>
         </div>
       </div>
 
@@ -103,7 +103,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
         <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="../controller/routes_controller.php?route=inicio" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Panel asistencia

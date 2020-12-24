@@ -1,7 +1,7 @@
 <?php
 
 class cone{
-
+    //CONEXION A LA BASE DE DATOS POR PDO
     public function con(){
         $cone = new PDO('mysql:host=localhost;dbname=control_asistencias;charset=utf8;', 'root', '');
         $cone->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

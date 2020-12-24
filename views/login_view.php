@@ -12,13 +12,14 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="../assets/js/login.js"></script>
-
+<title> control de asistencia | Login </title>
 <!------ Include the above in your HEAD tag ---------->
 <link rel="stylesheet" href="../assets/css/login.css">
 <!--
     you can substitue the span of reauth email for a input with the email and
     include the remember me checkbox
     -->
+    <link rel="shortcut icon" href="../assets/img/logo02.jpg">
     <div class="container">
         <div class="card card-container">
             <!-- <img class="profile-img-card" src="//lh3.googleusercontent.com/-6V8xOA6M7BA/AAAAAAAAAAI/AAAAAAAAAAA/rzlHcD0KYwo/photo.jpg?sz=120" alt="" /> -->

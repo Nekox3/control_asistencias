@@ -6,7 +6,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
+            <h1 class="m-0 text-dark">Control de horario</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -27,29 +27,35 @@
 
 <div class="container card">
   <div id="calendar"></div>
+
   <div class="row mt-3">
-  <div class="col-md-1"></div>
-    <div class="col-md-8">
-    <table class="table">
+    <div class="col-md-10">
+    
+<table class="table table-hover" >
   
-    <thead>
+    <thead class="bg-primary">
     <tr>
+      <th scope="col">Fecha</th>
+      <th scope="col">Hora ingreso</th>
+      <th scope="col">Hora salida</th>
+      <th scope="col">DNI</th>
+      <th scope="col">Turno</th>
+      <th scope="col">Observación</th>
       <th scope="col"></th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col"></th>
     </tr>
   </thead>
 
-  <tbody id="formAsistencia">
-    <tr>
-      <td></td>
-    </tr>
-  </tbody>
-
-    </table>
+      <tbody id="formAsistencia" >
+          <tr id="nullData">
+            <td>No hay datos aún</td>
+          </tr>
+        
+        </tbody>
+</table>
     </div>
-      <div class="col-md-2">
+
+      <div class="col-md-2" id="buttonsElements">
         <button type="button" id="addReg" class="btn btn-success mt-3 mb-3">Agregar <i class="fas fa-plus-circle"></i></button>
       </div>
     </div>
@@ -91,5 +97,35 @@ calendar.render();
 });
 */
   </script>
- 
+
+  <!--inicio modal-->
+ <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Agregar Observación</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-md-12">
+              <textarea id="observationTextFull" class="form form-control" placeholder="Agregar Observación"></textarea>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button id="saveObservation" type="button" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+        </div>
+       
+      </div>
+    </div>
+  </div>
+  
+  <!--fin modal-->
 </div>
