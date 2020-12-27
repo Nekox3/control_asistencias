@@ -27,41 +27,55 @@
 
 <div class="container card">
   <div id="calendar"></div>
-
   <div class="row mt-3">
-    <div class="col-md-10">
-    
-<table class="table table-hover" >
-  
-    <thead class="bg-primary">
-    <tr>
-      <th scope="col">Fecha</th>
-      <th scope="col">Hora ingreso</th>
-      <th scope="col">Hora salida</th>
-      <th scope="col">DNI</th>
-      <th scope="col">Turno</th>
-      <th scope="col">Observación</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
-    </tr>
-  </thead>
-
-      <tbody id="formAsistencia" >
-          <tr id="nullData">
-            <td>No hay datos aún</td>
-          </tr>
-        
-        </tbody>
-</table>
-    </div>
-
+      <div class="col-2">
+          <button type="button" id="addReg" class="btn btn-success">Agregar <i class="fas fa-plus-circle"></i></button>
+      </div>
       <div class="col-md-2" id="buttonsElements">
-        <button type="button" id="addReg" class="btn btn-success mt-3 mb-3">Agregar <i class="fas fa-plus-circle"></i></button>
+      </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="table-responsive">
+        <table class="table" >
+              <thead class="bg-primary">
+                <tr>
+                    <th >Fecha</th>
+                    <th >Hora ingreso</th>
+                    <th >Hora salida</th>
+                    <th style="width: 24.137931034483%">DNI</th>
+                    <th style="width: 24.137931034483%">Docente</th>
+                    <th style="width: 24.137931034483%">Turno</th>
+                    <th >Observación</th>
+                    <th ></th>
+                    <th ></th>
+                </tr>
+              </thead>
+              <tbody id="formAsistencia" >
+                    <tr id="nullData">
+                    <td>No hay datos aún</td>
+                    </tr>
+          
+              </tbody>
+        </table>
+      </div>
       </div>
     </div>
 
-  
+    <!-- jQuery -->
+<script src="../assets/plugins/jquery/jquery.min.js"></script>
+  <!-- Select2 -->
+<script src="../assets/plugins/select2/js/select2.full.min.js"></script>
   <script>
+
+    //Initialize Select2 Elements
+    $('.select2').select2()
+
+    //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
 /*
 document.addEventListener('DOMContentLoaded', function() {
         let fecha = new Date();

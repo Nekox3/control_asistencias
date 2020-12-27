@@ -28,7 +28,6 @@
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
-
   <link rel="stylesheet" href="../assets/plugins/fullcalendar/main.css">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,6 +38,16 @@
   <!-- Tempusdominus Bbootstrap 4 -->
   <!-- Theme style -->
   <link rel="stylesheet" href="../assets/dist/css/adminlte.css">
+<!-- DataTables -->
+<link rel="stylesheet" href="../assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" href="../assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+  
+ <!-- Select2 -->
+ <link rel="stylesheet" href="../assets/plugins/select2/css/select2.min.css">
+  <link rel="stylesheet" href="../assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
+
+   <!-- Bootstrap4 Duallistbox -->
+   <link rel="stylesheet" href="../assets/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
 
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -103,7 +112,7 @@
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
         <li class="nav-item">
-            <a href="../controller/routes_controller.php?route=inicio" class="nav-link">
+            <a href="../controller/routes_controller.php?route=secretaria" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Panel asistencia
@@ -112,10 +121,28 @@
           </li>
           
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="../controller/routes_controller.php?route=docente-secretaria" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Agregar profesor
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="../controller/routes_controller.php?route=asignatura-secretaria" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Agregar asignaturas
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="../controller/routes_controller.php?route=reporte-secretaria" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Reportes
               </p>
             </a>
           </li>

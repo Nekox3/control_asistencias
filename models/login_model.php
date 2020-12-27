@@ -19,7 +19,17 @@
                 
                 //VALIDA SI EL USUARIO EXISTE O NO
                 if(count($data_send) > 0){
-                    return array("state"=>true,"data"=>$data_send);
+                    if($data_send[0]['rol']=='2'){
+
+                        $data_send[0]['url'] = "../controller/routes_controller.php?route=secretaria";
+                        return array("state"=>true,"data"=>$data_send);
+
+                    }else if($data_send[0]['rol']=='3'){
+
+                        $data_send[0]['url'] = "../controller/routes_controller.php?route=admin";
+                        return array("state"=>true,"data"=>$data_send);
+                    }
+                    
                 }else{
                     return array("state"=>false,"data"=>"Error en DNI o contraseña","exeption"=>null);
                 }
