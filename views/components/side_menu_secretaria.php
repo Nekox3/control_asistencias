@@ -124,7 +124,7 @@
             <a href="../controller/routes_controller.php?route=docente-secretaria" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Agregar profesor
+                Agregar docente
               </p>
             </a>
           </li>
@@ -133,7 +133,7 @@
             <a href="../controller/routes_controller.php?route=asignatura-secretaria" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Agregar asignaturas
+                Agregar curso
               </p>
             </a>
           </li>

@@ -1,9 +1,13 @@
 var cont = 0;
 window.addEventListener("load", function(){
-    document.getElementById("addReg").addEventListener("click", function(){
-        let table = document.getElementById("formAsistencia");
-        document.getElementById("nullData") ? deleteData(table): addData(table)           
-    })
+    
+    if(document.getElementById("addReg")){
+        document.getElementById("addReg").addEventListener("click", function(){
+            let table = document.getElementById("formAsistencia");
+            document.getElementById("nullData") ? deleteData(table): addData(table)           
+        })
+    }
+    
 })
 
 //ELIMINAR LOS NODOS HIJOS DEL ID CONTENEDOR

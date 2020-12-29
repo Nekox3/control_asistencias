@@ -33,11 +33,17 @@
           </div>
           <div class="col-md-3">
             <label for="start">Desde:</label>
-            <input type="date" id="start">
+            <input type="date" class="form form-control" id="start">
           </div>
+
           <div class="col-md-3">
             <label for="end">Hasta:</label>
-            <input type="date" id="end">
+            <input type="date" class="form form-control" id="end">
+          </div>
+
+          <div class="col-md-3">
+            <label for="end">DNI del docente:</label>
+            <input type="text" class="form form-control" id="dni">
           </div>
 
         </div>
