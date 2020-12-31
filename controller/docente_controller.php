@@ -2,8 +2,10 @@
     
 //LOS NOMBRES DE LAS TABLAS SE AGREGAN EN LOS CONTROLADORES
 if(isset($_POST["flag"])){
+    include '../models/crud_model.php';  
+    
     if($_POST["flag"]=="get_table"){
-        include '../models/crud_model.php';    
+          
         $crud = new crud_model();
         $resp_table_rows = $crud->get_data_table("dbo_docente");
 
@@ -55,9 +57,33 @@ if(isset($_POST["flag"])){
 
             $dom->appendChild($tr);
         }
-
+        
         echo $dom->saveHTML();
+
+    }else if($_POST["flag"]=="delete"){
+        $crud = new crud_model();
+        $resp_table_rows = $crud->delete_data_table($_POST['id'] ,"dbo_docente");
+        echo json_encode($resp_table_rows);
+    }else if($_POST["flag"]=="insert"){
+
+        if(isset($_POST["agg"])){
+            $crud = new crud_model();
+            $resp_table_rows = $crud->insert_data_table($_POST['data'],"dbo_user");
+            echo json_encode($resp_table_rows);
+        }else{
+            $crud = new crud_model();
+            $resp_table_rows = $crud->insert_data_table($_POST['data'],"dbo_docente");
+            echo json_encode($resp_table_rows);
+        }
+
+
+
+    }else if($_POST["flag"]=="update"){
+        print_r($_POST);
     }
+
+
+
 }
 
 

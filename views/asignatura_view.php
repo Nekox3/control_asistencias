@@ -39,9 +39,9 @@
                   <thead class="bg-primary">
                     <tr>
                       <th>Docente</th>
-                      <th>Hora inicio</th>
+                      <th>Hora entrada</th>
                       <th>Hora salida</th>
-                      <th>Dias</th>
+                      <th>Docente</th>
                       <th></th>
                       <th></th>
                     </tr>
@@ -64,22 +64,56 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Datos de la asignatura</h4>
+          <h4 class="modal-title">Datos del curso</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
         <!-- Modal body -->
         <div class="modal-body">
-          <div class="row">
+        <div class="row">
             <div class="col-md-12">
-              <textarea id="observationTextFull" class="form form-control" placeholder="Agregar Observación"></textarea>
+              <div class="container">
+                  <div class="row">
+                    
+                  <div class="col-md-4">
+                      <label>Nombre</label>
+                      <input type="text" name="curso_nombre" placeholder="Nombre del curso" class="form form-control addInput">
+                  </div>
+
+
+                  <div class="col-md-4">
+                      <label>Docente</label>
+                      <select name="docente_name" class="form form-control addInput">
+                        <option value="Juan">Juan</option>
+                        <option value="Francisco">Francisco</option>
+                      </select>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                      <label>Hora entrada</label>
+                      <input type="time" name="hora_inicio" class="form form-control addInput">
+                    </div>
+
+                    <div class="col-md-4">
+                      <label>Hora salida</label>
+                      <input type="time"  name="hora_fin" class="form form-control addInput">
+                    </div>
+                </div>
+
+
+              </div>
             </div>
-          </div>
+        </div>
+
         </div>
         
         <!-- Modal footer -->
         <div class="modal-footer">
-          <button id="saveItem" type="button" class="btn btn-primary" data-dismiss="modal">Agregar</button>
+          <button id="saveItem" onclick="insertItems()" type="button" class="btn btn-primary" data-dismiss="modal">Agregar</button>
         </div>
        
       </div>

@@ -21,15 +21,16 @@
 <link  href='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.5.0/main.min.css' rel='stylesheet' />
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.5.0/main.min.js'></script>
 <script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@5.5.0/locales-all.min.js'></script>
-<script src="../assets/js/ini_panel.js"></script>
+<script src="../assets/js/reporteria.js"></script>
 
 
 
 
 <div class="container card">
         <div class="row mt-3">
-          <div class="col-md-3">
-              <button class="btn btn-success" onclick="getPDF()">Generar reporte</button>
+          <div class="col-md-3" id="">
+              <button class="btn btn-success mb-2" onclick="getReport()">Generar reporte</button>
+              <button class="btn btn-success mb-2" onclick="getPDF()">Descargar reporte PDF</button>
           </div>
           <div class="col-md-3">
             <label for="start">Desde:</label>
@@ -43,38 +44,61 @@
 
           <div class="col-md-3">
             <label for="end">DNI del docente:</label>
-            <input type="text" class="form form-control" id="dni">
+            <input type="text" class="form form-control" maxlength="8" id="dni">
           </div>
 
         </div>
-        <div class="row mt-3 mb-4">
+
+        <div id="root">
+        
+        <div class="row mt-4 mb-4">
+
+         <div class="col-md-3">
+            <div id="desde"></div>
+            
+          </div>
+
+          <div class="col-md-3">
+          <div id="hasta"></div>
+            
+          </div>
+
+          <div class="col-md-3">
+          <div id="dni_rep"></div>
+           
+          </div>
+
+          <div class="col-md-3">
+          <div id="horas"></div>
+            
+          </div>
+
+        </div>
+        <div class="row mt-2 mb-4">
           <div class="col-md-12">
               <div class="table-responsive">
-                <table id="root" class="table table-bordered">
+                <table  class="table table-bordered">
                   <thead>
                     <tr>
                       <th>Docente</th>
                       <th>Hora inicio</th>
                       <th>Hora salida</th>
-                      <th>Dias</th>
+                      <th>Fecha</th>
+                      <th>Turno</th>
+                      <th>Observacion</th>
                     </tr>
                   </thead>
+                  <tbody></tbody>
                 </table>
               </div>
           </div>
         </div>
+
+        
+       </div>
+
+        
 </div>
 <script>
-      function getPDF() {
-        // Get the element.
-        var element = document.getElementById('root');
-
-        // Generate the PDF.
-        html2pdf().from(element).set({
-          margin: 1,
-          filename: 'reporte_horarios.pdf',
-          html2canvas: { scale: 2 },
-          jsPDF: {orientation: 'portrait', unit: 'in', format: 'letter', compressPDF: true}
-        }).save();
-      }
+ 
     </script>
