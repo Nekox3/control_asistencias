@@ -25,6 +25,14 @@ class reporteria_model{
             $data = $data_table->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }
+
+        public function obtenerUsuarios(){
+            $db = $this->con();
+            $data_table = $db->prepare("SELECT usuario_nombre,usuario_apellidos,usuario_dni FROM dbo_user WHERE rol = 1 ");
+            $data_table->execute();
+            $data = $data_table->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+        }
         
 
     }

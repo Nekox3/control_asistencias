@@ -1,5 +1,5 @@
 window.addEventListener("load", function(){
-
+  getDataDocente()
 
 });
 
@@ -29,6 +29,7 @@ function getPDF(){
     formData.append("hora_inicio", start);
     formData.append("hora_fin", end);
     formData.append("dni", dni);
+    formData.append("flag", "get_data");
 
     report.onreadystatechange = ()=>{
         if(report.status==200 && report.readyState ==4){
@@ -49,3 +50,27 @@ function getPDF(){
     report.open("POST","../controller/reporteria_controller.php",true);
     report.send(formData);
  };
+
+
+ function getDataDocente(){
+
+  let formData = new FormData();
+  formData.append("flag", "get_users");
+
+  let htt = new XMLHttpRequest();
+  htt.onreadystatechange = function(){
+    if(htt.readyState == 4 && htt.status == 200){
+      let users = JSON.parse(htt.responseText);
+      users.forEach(element => {
+        let option = document.createElement("option");
+        option.value = element.usuario_dni
+        option.textContent = `${element.usuario_nombre} ${element.usuario_apellidos}`
+        document.getElementById("dni").appendChild(option);
+      });
+    }
+  }
+
+  htt.open("POST","../controller/reporteria_controller.php",true);
+  htt.send(formData)
+
+ }

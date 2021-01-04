@@ -44,7 +44,9 @@
 
           <div class="col-md-3">
             <label for="end">DNI del docente:</label>
-            <input type="text" class="form form-control" maxlength="8" id="dni">
+            <select type="text" class="form form-control" maxlength="8" id="dni">
+            
+            <select>
           </div>
 
         </div>
