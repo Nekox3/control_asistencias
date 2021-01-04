@@ -3,7 +3,7 @@ window.addEventListener("load", function(){
 
 });
 
-
+//GENERA EL PDF
 function getPDF(){
     // Get the element.
     var element = document.getElementById('root');
@@ -17,7 +17,7 @@ function getPDF(){
     }).save();
   }
 
-
+//OBTIENE LOS DATOS PARA FORMAR EL REPORTE
  function getReport(){
     let report = new XMLHttpRequest();
     

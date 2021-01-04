@@ -7,7 +7,7 @@ if(isset($_POST["flag"])){
     if($_POST["flag"]=="get_table"){
           
         $crud = new crud_model();
-        $resp_table_rows = $crud->get_data_table("dbo_docente");
+        $resp_table_rows = $crud->get_data_table("dbo_user","WHERE rol = 1");
 
         $dom = new DOMDocument('1.0');
         $tbody = $dom->createElement("tbody");
@@ -16,20 +16,20 @@ if(isset($_POST["flag"])){
 
             $tr =$dom->createElement("tr");
 
-            $td_dni = $dom->createElement("td");
-            $td_dni->textContent = $val['docente_dni'];
+            $td_nombre = $dom->createElement("td");
+            $td_nombre->textContent = $val['usuario_nombre'];
 
-            $td_hinicio = $dom->createElement("td");
-            $td_hinicio->textContent = $val['docente_hora_inicio'];
+            $td_apellidos = $dom->createElement("td");
+            $td_apellidos->textContent = $val['usuario_apellidos'];
 
-            $td_hfin = $dom->createElement("td");
-            $td_hfin->textContent = $val['docente_hora_salida'];
+            $td_docente_telefono = $dom->createElement("td");
+            $td_docente_telefono->textContent = $val['usuario_telefono'];
 
-            $td_dia = $dom->createElement("td");
-            $td_dia->textContent = $val['docente_dia'];
+            $td_docente_correo = $dom->createElement("td");
+            $td_docente_correo->textContent = $val['usuario_correo'];
 
-            $td_docente_name = $dom->createElement("td");
-            $td_docente_name->textContent = $val['docente_nombre'];
+            $td_docente_dni = $dom->createElement("td");
+            $td_docente_dni->textContent = $val['usuario_dni'];
 
             //BOTONES------------------------------
             $td_update = $dom->createElement("td");
@@ -51,11 +51,11 @@ if(isset($_POST["flag"])){
 
 
             //SE AGREGAN AL TR
-            $tr->appendChild($td_docente_name);
-            $tr->appendChild($td_hinicio);
-            $tr->appendChild($td_hfin);
-            $tr->appendChild($td_dia);
-            $tr->appendChild($td_dni);
+            $tr->appendChild($td_nombre);
+            $tr->appendChild($td_apellidos);
+            $tr->appendChild($td_docente_telefono);
+            $tr->appendChild($td_docente_correo);
+            $tr->appendChild($td_docente_dni);
             $tr->appendChild($td_update);
             $tr->appendChild($td_delete);
 
@@ -66,26 +66,20 @@ if(isset($_POST["flag"])){
 
     }else if($_POST["flag"]=="delete"){
         $crud = new crud_model();
-        $resp_table_rows = $crud->delete_data_table($_POST['id'] ,"dbo_docente");
+        $resp_table_rows = $crud->delete_data_table($_POST['id'] ,"dbo_user","AND rol = 1");
         echo json_encode($resp_table_rows);
     }else if($_POST["flag"]=="insert"){
-
-        if(isset($_POST["agg"])){
             $crud = new crud_model();
             $resp_table_rows = $crud->insert_data_table($_POST['data'],"dbo_user");
             echo json_encode($resp_table_rows);
-        }else{
-            $crud = new crud_model();
-            $resp_table_rows = $crud->insert_data_table($_POST['data'],"dbo_docente");
-            echo json_encode($resp_table_rows);
-        }
+
     }else if($_POST["flag"]=="get_update"){
         $crud = new crud_model();
-        $resp_table_rows = $crud->update_get_data_table($_POST['id'],"dbo_docente");
+        $resp_table_rows = $crud->update_get_data_table($_POST['id'],"dbo_user");
         echo json_encode($resp_table_rows);
     }else if($_POST["flag"]=="add_update"){
         $crud = new crud_model();
-        $resp_table_rows = $crud->update_data_table($_POST['data'],$_POST['id'],"dbo_docente");
+        $resp_table_rows = $crud->update_data_table($_POST['data'],$_POST['id'],"dbo_user");
         echo json_encode($resp_table_rows);
     }
 

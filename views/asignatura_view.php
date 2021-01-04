@@ -27,24 +27,25 @@
 
 <div class="container"> 
   <div class="row mb-2">
-    <div class="col-md-3">
-      <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Agregar</button>
+    <div class="col-md-1">
+    <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Agregar</button>
     </div>
   </div>
-<div class=" container card">
+<div class="container card">
         <div class="row mt-3 mb-4">
           <div class="col-md-12">
               <div class="table-responsive">
                 <table id="asignaturaTable" class="table table-hover">
                   <thead class="bg-primary">
                     <tr>
-                      <th>Docente</th>
+                    <th>Docente</th>
                       <th>Hora entrada</th>
                       <th>Hora salida</th>
-                      <th>Docente</th>
+                      <th>Hora salida</th>
+                      <th>Día</th>
                       <th></th>
                       <th></th>
-                    </tr>
+                     </tr>
                   </thead>
                   <tbody></tbody>
                 </table>
@@ -53,8 +54,6 @@
         </div>
 </div>
 </div>
-
-
 
 <!--Modal-->
 
@@ -83,9 +82,7 @@
 
                   <div class="col-md-4">
                       <label>Docente</label>
-                      <select name="docente_name" class="form form-control addInput">
-                        <option value="Juan">Juan</option>
-                        <option value="Francisco">Francisco</option>
+                      <select id="docente" name="docente_name" class="form form-control addInput">
                       </select>
                     </div>
 
@@ -102,6 +99,20 @@
                       <label>Hora salida</label>
                       <input type="time"  name="hora_fin" class="form form-control addInput">
                     </div>
+
+                    <div class="col-md-4">
+                          <label>Día</label>
+                          <select name="dia" class="form form-control addInput">
+                            <option value="lunes">Lunes</option>
+                            <option value="martes">Martes</option>
+                            <option value="miercoles">Miércoles</option>
+                            <option value="jueves">Jueves</option>
+                            <option value="viernes">Viernes</option>
+                            <option value="sabado">Sábado</option>
+                            <option value="domingo">Domingo</option>
+                           </select>
+                      </div>
+                      <input type="hidden" id="id">
                 </div>
 
 
@@ -122,6 +133,8 @@
   <!--fin modal-->
 
   
+<!--Modal-->
+  <!--fin modal-->
 <!-- DataTables -->
 <script src="../assets/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../assets/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>

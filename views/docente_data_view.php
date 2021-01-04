@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Agregar horario</h1>
+            <h1 class="m-0 text-dark">Agregar docente</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Inicio</a></li>
-              <li class="breadcrumb-item active">Horarios</li>
+              <li class="breadcrumb-item active">Docente</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -25,23 +25,22 @@
 
 <div class="container"> 
   <div class="row mb-2">
-     <div class="col-md-2">
-    <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Agregar horario</button>
+    <div class="col-md-1">
+    <button class="btn btn-success" data-toggle="modal" data-target="#myModal">Agregar</button>
     </div>
-
   </div>
 <div class="container card">
         <div class="row mt-3 mb-4">
           <div class="col-md-12">
               <div class="table-responsive">
-                <table id="docenteTable" class="table table-hover">
+                <table id="docenteTableData" class="table table-hover">
                   <thead class="bg-primary">
                     <tr>
-                      <th>Docente</th>
-                      <th>Hora inicio</th>
-                      <th>Hora salida</th>
-                      <th>Día</th>
-                      <th>Docente DNI</th>
+                      <th>Nombres</th>
+                      <th>Apellidos</th>
+                      <th>Telefono de contacto</th>
+                      <th>Correo</th>
+                      <th>DNI</th>
                       <th></th>
                       <th></th>
                     </tr>
@@ -53,8 +52,9 @@
         </div>
 </div>
 </div>
-  
-  <!--Modal-->
+
+
+<!--Modal-->
 
 <div class="modal fade" id="myModal">
     <div class="modal-dialog modal-lg">
@@ -62,7 +62,7 @@
       
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Datos del horario del docente</h4>
+          <h4 class="modal-title">Datos del docente</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         
@@ -73,44 +73,39 @@
               <div class="container">
                   <div class="row">
                     <div class="col-md-4">
-                      <label>Docente</label>
-                      <select id="docente" name="docente_nombre" class="form form-control addInput">
-
-                      </select>
+                      <label>Nombres</label>
+                      <input type="text" placeholder="Nombres del docente" name="usuario_nombre" class="form form-control addInput">
                     </div>
 
                     <div class="col-md-4">
-                      <label>DNI</label>
-                      <input type="text" placeholder="DNI" name="docente_dni" class="form form-control addInput">
+                      <label>Apellidos</label>
+                      <input type="text" placeholder="Nombre docente " name="usuario_apellidos" class="form form-control addInput">
                     </div>
+
+
+                    <div class="col-md-4">
+                      <label>DNI</label>
+                      <input type="text" placeholder="DNI del docente"  name="usuario_dni" class="form form-control addInput">
+                    </div>
+
                   </div>
 
                   <div class="row">
 
-                      <div class="col-md-4">
-                          <label>Hora entrada</label>
-                          <input type="time" name="docente_hora_inicio" class="form form-control addInput">
-                      </div>
+                  <div class="col-md-4">
+                      <label>Nº celular</label>
+                      <input type="text" placeholder="Telefono de contácto" name="usuario_telefono" class="form form-control addInput">
+                    </div>
 
-                      <div class="col-md-4">
-                          <label>Hora salida</label>
-                          <input type="time"  name="docente_hora_salida" class="form form-control addInput">
-                      </div>
+                    <div class="col-md-4">
+                      <label>Correo electrónico</label>
+                      <input type="mail" placeholder="Correo de contácto" name="usuario_correo" class="form form-control addInput">
+                    </div>
 
-                      <div class="col-md-4">
-                          <label>Día</label>
-                          <select  name="docente_dia" class="form form-control addInput">
-                            <option value="lunes">Lunes</option>
-                            <option value="martes">Martes</option>
-                            <option value="miercoles">Miércoles</option>
-                            <option value="jueves">Jueves</option>
-                            <option value="viernes">Viernes</option>
-                            <option value="sabado">Sábado</option>
-                            <option value="domingo">Domingo</option>
-                           </select>
-                      </div>
-                      <input type="hidden" id="id">
-                </div>
+                    <input type="hidden" class="addInput" name="rol" value="1">
+                    <input type="hidden" id="id">
+                  </div>
+
               </div>
             </div>
           </div>
@@ -124,6 +119,10 @@
       </div>
     </div>
   </div>
+  <!--fin modal-->
+
+  
+  <!--Modal-->
   <!--fin modal-->
 <!-- DataTables -->
 <script src="../assets/plugins/datatables/jquery.dataTables.min.js"></script>

@@ -1,7 +1,12 @@
 window.addEventListener("load", function(){
   createTable();
-});
 
+  let id = document.getElementById("docente");
+  if(id){
+    getDocente(id);
+  }
+
+});
 
 //CREA LAS TABLAS
 function createTable(){
@@ -13,6 +18,8 @@ function createTable(){
       controllerName="docente_controller"
   }else if(tableName =="asignaturaTable"){
       controllerName="asignatura_controller"
+  }else if(tableName =="docenteTableData"){
+    controllerName="docente_data_controller"
   }
   //----------------------------
   let formGet = new FormData();
@@ -34,9 +41,6 @@ function createTable(){
 }
 
 
-
-
-
 function insertItems(){
   const table = document.getElementsByTagName("table")[0];
   let tableName = table.id; 
@@ -46,6 +50,8 @@ function insertItems(){
       controllerName="docente_controller"
   }else if(tableName =="asignaturaTable"){
       controllerName="asignatura_controller"
+  }else if(tableName =="docenteTableData"){
+    controllerName="docente_data_controller"
   }
 
 
@@ -65,13 +71,7 @@ function insertItems(){
                 }
             }else if(classInput[i].type != "radio"){
             
-            if(classInput[i].name =="usuario_nombre" && classInput[i].value != ""){
-              form.append("agg",'true');
-            }
-
-            if(classInput[i].value != " " && classInput[i].name != "rol"){
               regData.push({ "column":`${classInput[i].name}`,"data":`${classInput[i].value}`});
-            }
         }                               
     } 
 }
@@ -92,8 +92,8 @@ form.append("data", JSON.stringify(regData));
               title: `Se ha guardado correctamente!`
             });
             setTimeout(function(){
-              window.location.reload();
-            },2000)
+             window.location.reload();
+            },3000)
 
       }else{
           swal({
@@ -112,21 +112,122 @@ form.append("data", JSON.stringify(regData));
 }
 
 
-
-
-
-
 function updateItems(id,idItem){
+
+  const table = document.getElementsByTagName("table")[0];
+  let tableName = table.id; 
+  let controllerName;
+
+
   idItem.textContent ="Actualizar"
+
+if(tableName =="docenteTable"){
+    controllerName="docente_controller"
+}else if(tableName =="asignaturaTable"){
+    controllerName="asignatura_controller"
+}else if(tableName =="docenteTableData"){
+  controllerName="docente_data_controller"
 }
 
 
+let get_update = new XMLHttpRequest();
+let form_update = new FormData();
 
-function addUpdate(){
+form_update.append("id",id);
+form_update.append("flag","get_update");
+
+get_update.onreadystatechange = function(){
+  if(get_update.readyState == 4 && get_update.status == 200){
+    let data = JSON.parse(get_update.responseText);
+      data.forEach(element => {
+        if(document.getElementsByName(`${element.id}`)[0]){
+            document.getElementsByName(`${element.id}`)[0].value = element.val;
+          }
+
+          if(document.getElementById(`id`)){
+            if(element.id=="id"){
+              document.getElementById(`id`).value = element.val;
+              idItem.setAttribute("onclick",`addUpdate('${element.val}')`);
+            }
+          }
+      });
+    }
+  }
+
+get_update.open("POST",`../controller/${controllerName}.php`,true);
+get_update.send(form_update);
 
 }
 
 
+function addUpdate(id){
+  const table = document.getElementsByTagName("table")[0];
+  let tableName = table.id; 
+  let controllerName;
+  //----------------------------
+  if(tableName =="docenteTable"){
+      controllerName="docente_controller"
+  }else if(tableName =="asignaturaTable"){
+      controllerName="asignatura_controller"
+  }else if(tableName =="docenteTableData"){
+    controllerName="docente_data_controller"
+  }
+
+
+  let form = new FormData()
+  form.append("flag","add_update");
+
+
+  let classInput = document.getElementsByClassName("addInput");
+  let i = classInput.length;
+  let regData = [];
+
+  while(i--){
+    if(classInput[i].value != " "){
+            if(classInput[i].type == "radio"){
+                if(classInput[i].checked){
+                    regData.push({ "column":`${classInput[i].name}`,"data":`${classInput[i].value}`});
+                }
+            }else if(classInput[i].type != "radio"){
+            
+              regData.push({ "column":`${classInput[i].name}`,"data":`${classInput[i].value}`});
+        }                               
+    } 
+}
+
+form.append("data", JSON.stringify(regData));
+form.append("id", id);
+  //------------------------------
+
+    let insertCrud = new XMLHttpRequest();
+    insertCrud.onreadystatechange = function(){
+      if(insertCrud.status==200 && insertCrud.readyState == 4){
+        let resp = JSON.parse(insertCrud.responseText);
+        //console.log(insertCrud.responseText);
+
+        if(resp.state){
+          swal({
+              icon: "success",
+              title: `Se modificado correctamente!`
+            });
+            setTimeout(function(){
+             window.location.reload();
+            },3000)
+
+      }else{
+          swal({
+              icon: "error",
+              title: `Error al guardar`
+            });
+            console.log(insertCrud.error)
+        }
+      }
+    }
+
+    insertCrud.open("POST",`../controller/${controllerName}.php`,true);
+    insertCrud.send(form);
+
+}
 
 
 function deleteitems(id){
@@ -139,6 +240,8 @@ function deleteitems(id){
       controllerName="docente_controller"
   }else if(tableName =="asignaturaTable"){
       controllerName="asignatura_controller"
+  }else if(tableName =="docenteTableData"){
+    controllerName="docente_data_controller"
   }
   //------------------------------
     let form = new FormData();

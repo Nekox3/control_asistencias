@@ -24,6 +24,10 @@ if(isset($_POST["flag"])){
             $td_hfin = $dom->createElement("td");
             $td_hfin->textContent = $val['hora_fin'];
 
+            $td_dia = $dom->createElement("td");
+            $td_dia->textContent = $val['dia'];
+
+
             $td_docente_name = $dom->createElement("td");
             $td_docente_name->textContent = $val['docente_name'];
 
@@ -50,6 +54,7 @@ if(isset($_POST["flag"])){
             $tr->appendChild($td_name);
             $tr->appendChild($td_hinicio);
             $tr->appendChild($td_hfin);
+            $tr->appendChild($td_dia);
             $tr->appendChild($td_docente_name);
             $tr->appendChild($td_update);
             $tr->appendChild($td_delete);
@@ -67,8 +72,14 @@ if(isset($_POST["flag"])){
         $crud = new crud_model();
         $resp_table_rows = $crud->insert_data_table($_POST['data'],"dbo_cursos");
         echo json_encode($resp_table_rows);
-    }else if($_POST["flag"]=="update"){
-        print_r($_POST);
+    }else if($_POST["flag"]=="get_update"){
+        $crud = new crud_model();
+        $resp_table_rows = $crud->update_get_data_table($_POST['id'],"dbo_cursos");
+        echo json_encode($resp_table_rows);
+    }else if($_POST["flag"]=="add_update"){
+        $crud = new crud_model();
+        $resp_table_rows = $crud->update_data_table($_POST['data'],$_POST['id'],"dbo_cursos");
+        echo json_encode($resp_table_rows);
     }
 
 }

@@ -8,6 +8,7 @@ class reporteria_model{
             return $cone->con();            
         }
 
+        
         public function obtenerCalculoHoras($info){
             $db = $this->con();
             $data_table = $db->prepare("SELECT SUM(HOUR(TIMEDIFF(hora_ingreso, hora_salida)) + CASE WHEN MINUTE(TIMEDIFF(hora_ingreso, hora_salida)) % 60 > 20 THEN 1 ELSE 0 END )as horas FROM dbo_horas WHERE fecha BETWEEN :inicio AND :fin AND dni LIKE :dni ");
@@ -28,8 +29,6 @@ class reporteria_model{
 
     }
 
-
-/*QUERI CALCULO DE HORAS */ 
 
 
 

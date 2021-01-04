@@ -12,6 +12,11 @@ switch($_GET["route"]){
         break;
 
         //VISTAS GENERALES
+        case "docente-data-secretaria":
+            require_once('../views/components/side_menu_secretaria.php');
+            require_once('../views/docente_data_view.php');
+        break;
+
         case "docente-secretaria":
             require_once('../views/components/side_menu_secretaria.php');
             require_once('../views/docente_view.php');

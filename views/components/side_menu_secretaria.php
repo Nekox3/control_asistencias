@@ -122,10 +122,19 @@
           </li>
           
           <li class="nav-item">
-            <a href="../controller/routes_controller.php?route=docente-secretaria" class="nav-link">
+            <a href="../controller/routes_controller.php?route=docente-data-secretaria" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Agregar docente
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="../controller/routes_controller.php?route=docente-secretaria" class="nav-link">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Agregar horario
               </p>
             </a>
           </li>
