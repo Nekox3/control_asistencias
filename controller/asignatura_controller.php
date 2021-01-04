@@ -27,6 +27,14 @@ if(isset($_POST["flag"])){
             $td_dia = $dom->createElement("td");
             $td_dia->textContent = $val['dia'];
 
+            
+            $td_aula = $dom->createElement("td");
+            $td_aula->textContent = $val['aula'];
+
+            
+            $td_tipo = $dom->createElement("td");
+            $td_tipo->textContent = $val['tipo'];
+
 
             $td_docente_name = $dom->createElement("td");
             $td_docente_name->textContent = $val['docente_name'];
@@ -56,6 +64,8 @@ if(isset($_POST["flag"])){
             $tr->appendChild($td_hfin);
             $tr->appendChild($td_dia);
             $tr->appendChild($td_docente_name);
+            $tr->appendChild($td_aula);
+            $tr->appendChild($td_tipo);
             $tr->appendChild($td_update);
             $tr->appendChild($td_delete);
 

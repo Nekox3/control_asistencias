@@ -130,6 +130,7 @@
             </a>
           </li>
 
+<!--
           <li class="nav-item">
             <a href="../controller/routes_controller.php?route=docente-secretaria" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
@@ -138,7 +139,7 @@
               </p>
             </a>
           </li>
-
+-->
           <li class="nav-item">
             <a href="../controller/routes_controller.php?route=asignatura-secretaria" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

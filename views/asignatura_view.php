@@ -38,11 +38,13 @@
                 <table id="asignaturaTable" class="table table-hover">
                   <thead class="bg-primary">
                     <tr>
-                    <th>Docente</th>
-                      <th>Hora entrada</th>
-                      <th>Hora salida</th>
-                      <th>Hora salida</th>
+                    <th>Nombre</th>
+                      <th>Hora inicio</th>
+                      <th>Hora fin</th>
                       <th>Día</th>
+                      <th>Docente</th>
+                      <th>Aula</th>
+                      <th>Tipo</th>
                       <th></th>
                       <th></th>
                      </tr>
@@ -87,6 +89,23 @@
                     </div>
 
                 </div>
+
+                <div class="row">
+
+                <div class="col-md-4">
+                      <label>Código de aula</label>
+                      <input name="aula" class="form form-control addInput">
+                </div>
+
+                <div class="col-md-4">
+                      <label>Tipo de curso</label>
+                      <select name="tipo" class="form form-control addInput">
+                        <option value="practico">Práctico</option>
+                        <option value="teorico">Teórico</option>
+                      </select>
+                    </div>
+                </div>
+
 
                 <div class="row">
 
